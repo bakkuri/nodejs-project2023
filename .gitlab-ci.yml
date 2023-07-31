@@ -1,0 +1,25 @@
+image: node:14.17.5
+
+cache:
+  paths:
+  - node_modules/
+
+stages:
+  - npm_install
+  - npm_start
+  - npm_status
+
+npm_install:
+  stage: npm_install
+  script:
+   - npm install
+
+npm_start:
+  stage: npm_start
+  script:
+   - npm start
+   - node ./app.js
+npm_status:
+  stage: npm_status
+  script:
+    - curl localhost:3005
